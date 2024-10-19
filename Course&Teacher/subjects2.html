@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering Subjects Selection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .draggable-item {
+            cursor: grab;
+        }
+        .disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-center mb-8">Engineering Subjects Selection</h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <!-- Year Columns -->
+            <div class="bg-white shadow-lg rounded-lg p-6" id="year1">
+                <h2 class="text-xl font-bold text-gray-800 mb-4">1st Year</h2>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="showSubjects('year1')">Select Subjects</button>
+            </div>
+            <div class="bg-white shadow-lg rounded-lg p-6" id="year2">
+                <h2 class="text-xl font-bold text-gray-800 mb-4">2nd Year</h2>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="showSubjects('year2')">Select Subjects</button>
+            </div>
+            <div class="bg-white shadow-lg rounded-lg p-6" id="year3">
+                <h2 class="text-xl font-bold text-gray-800 mb-4">3rd Year</h2>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="showSubjects('year3')">Select Subjects</button>
+            </div>
+            <div class="bg-white shadow-lg rounded-lg p-6" id="year4">
+                <h2 class="text-xl font-bold text-gray-800 mb-4">4th Year</h2>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="showSubjects('year4')">Select Subjects</button>
+            </div>
+        </div>
+        
+        <!-- Subjects Modal -->
+        <div id="subjectsModal" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center hidden">
+            <div class="bg-white rounded-lg p-8 w-full max-w-4xl">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4" id="modalTitle">Select Subjects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Available Subjects -->
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Available Subjects</h3>
+                        <div id="availableSubjects" class="bg-gray-100 p-4 rounded-lg h-64 overflow-y-auto">
+                            <!-- 1st Year Subjects -->
+                            <div class="draggable-item bg-blue-100 p-2 rounded mb-2" data-faculty="Dr. John Doe">
+                                Mathematics I
+                                <div class="text-sm text-gray-600">Dr. John Doe</div>
+                            </div>
+                            <div class="draggable-item bg-blue-100 p-2 rounded mb-2" data-faculty="Dr. Jane Smith">
+                                Physics I
+                                <div class="text-sm text-gray-600">Dr. Jane Smith</div>
+                            </div>
+                            <div class="draggable-item bg-blue-100 p-2 rounded mb-2" data-faculty="Dr. Emily Johnson">
+                                Chemistry I
+                                <div class="text-sm text-gray-600">Dr. Emily Johnson</div>
+                            </div>
+                            <div class="draggable-item bg-blue-100 p-2 rounded mb-2" data-faculty="Dr. Michael Brown">
+                                Engineering Drawing
+                                <div class="text-sm text-gray-600">Dr. Michael Brown</div>
+                            </div>
+                            <div class="draggable-item bg-blue-100 p-2 rounded mb-2" data-faculty="Dr. Sarah Davis">
+                                Computer Programming
+                                <div class="text-sm text-gray-600">Dr. Sarah Davis</div>
+                            </div>
+                            <div class="draggable-item bg-blue-100 p-2 rounded mb-2" data-faculty="Dr. John Doe">
+                                Lab I (Physics)
+                                <div class="text-sm text-gray-600">Dr. John Doe</div>
+                            </div>
+                            <div class="draggable-item bg-blue-100 p-2 rounded mb-2" data-faculty="Dr. Jane Smith">
+                                Lab I (Chemistry)
+                                <div class="text-sm text-gray-600">Dr. Jane Smith</div>
+                            </div>
+                            
+                            <!-- 2nd Year Subjects -->
+                            <div class="draggable-item bg-blue-100 p-2 rounded mb-2" data-faculty="Dr. Mark Lee" style="display:none;">
+                                Mathematics II
+                                <div class="text-sm text-gray-600">Dr. Mark Lee</div>
+                            </div>
+                            <div class="draggable-item bg-blue-100 p-2 rounded mb-2" data-faculty="Dr. Anne White" style="display:none;">
+                                Mechanics
+                                <div class="text-sm text-gray-600">Dr. Anne White</div>
+                            </div>
+                            <div class="draggable-item bg-blue-100 p-2 rounded mb-2" data-faculty="Dr. Tom Green" style="display:none;">
+                                Thermodynamics
+                                <div class="text-sm text-gray-600">Dr. Tom Green</div>
+                            </div>
+                            <div class="draggable-item bg-blue-100 p-2 rounded mb-2" data-faculty="Dr. Eva Black" style="display:none;">
+                                Electrical Circuits
+                                <div class="text-sm text-gray-600">Dr. Eva Black</div>
+                            </div>
+                            <div class="draggable-item bg-blue-100 p-2 rounded mb-2" data-faculty="Dr. Greg Gold" style="display:none;">
+                                Engineering Materials
+                                <div class="text-sm text-gray-600">Dr. Greg Gold</div>
+                            </div>
+                            <div class="draggable-item bg-blue-100 p-2 rounded mb-2" data-faculty="Dr. Mark Lee" style="display:none;">
+                                Lab II (Mechanical)
+                                <div class="text-sm text-gray-600">Dr. Mark Lee</div>
+                            </div>
+                            
+                            <!-- 3rd Year Subjects -->
+                            <div class="draggable-item bg-blue-100 p-2 rounded mb-2" data-faculty="Dr. Anna Blue" style="display:none;">
+                                Control Systems
+                                <div class="text-sm text-gray-600">Dr. Anna Blue</div>
+                            </div>
+                            <div class="draggable-item bg-blue-100 p-2 rounded mb-2" data-faculty="Dr. Nick Brown" style="display:none;">
+                                Digital Electronics
+                                <div class="text-sm text-gray-600">Dr. Nick Brown</div>
+                            </div>
+                            <div class="draggable-item bg-blue-100 p-2 rounded mb-2" data-faculty="Dr. Liam Black" style="display:none;">
+                                Data Structures
+                                <div class="text-sm text-gray-600">Dr. Liam Black</div>
+                            </div>
+                            <div class="draggable-item bg-blue-100 p-2 rounded mb-2" data-faculty="Dr. Sam White" style="display:none;">
+                                Lab III (Electronics)
+                                <div class="text-sm text-gray-600">Dr. Sam White</div>
+                            </div>
+                            
+                            <!-- 4th Year Subjects -->
+                            <div class="draggable-item bg-blue-100 p-2 rounded mb-2" data-faculty="Dr. Jane Doe" style="display:none;">
+                                Software Engineering
+                                <div class="text-sm text-gray-600">Dr. Jane Doe</div>
+                            </div>
+                            <div class="draggable-item bg-blue-100 p-2 rounded mb-2" data-faculty="Dr. John Smith" style="display:none;">
+                                Project Management
+                                <div class="text-sm text-gray-600">Dr. John Smith</div>
+                            </div>
+                            <div class="draggable-item bg-blue-100 p-2 rounded mb-2" data-faculty="Dr. Anne Black" style="display:none;">
+                                Lab IV (Software Development)
+                                <div class="text-sm text-gray-600">Dr. Anne Black</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Selected Subjects -->
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Selected Subjects</h3>
+                        <div id="selectedSubjects" class="bg-gray-100 p-4 rounded-lg h-64 overflow-y-auto">
+                            <div class="bg-green-100 p-2 rounded mb-2">Drag subjects here</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <button type="button" class="bg-green-500 text-white px-4 py-2 rounded" onclick="submitSubjects()">Submit</button>
+                    <button type="button" class="bg-red-500 text-white px-4 py-2 rounded" onclick="closeModal()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let userYear = 'year1'; // Set user's current year here
+
+        function showSubjects(year) {
+            document.getElementById('modalTitle').innerText = `Select Subjects for ${year.replace('year', '')} Year`;
+            disableOtherYears(year);
+            document.getElementById('subjectsModal').classList.remove('hidden');
+
+            // Hide all subjects and show only the relevant year subjects
+            const allSubjects = document.querySelectorAll('.draggable-item');
+            allSubjects.forEach(subject => {
+                subject.style.display = 'none'; // Hide all
+            });
+
+            // Show relevant subjects based on year
+            const subjectsForYear = {
+                year1: ['Mathematics I', 'Physics I', 'Chemistry I', 'Engineering Drawing', 'Computer Programming', 'Lab I (Physics)', 'Lab I (Chemistry)'],
+                year2: ['Mathematics II', 'Mechanics', 'Thermodynamics', 'Electrical Circuits', 'Engineering Materials', 'Lab II (Mechanical)'],
+                year3: ['Control Systems', 'Digital Electronics', 'Data Structures', 'Lab III (Electronics)'],
+                year4: ['Software Engineering', 'Project Management', 'Lab IV (Software Development)']
+            };
+
+            subjectsForYear[year].forEach(subjectName => {
+                const subject = Array.from(allSubjects).find(sub => sub.innerText.includes(subjectName));
+                if (subject) {
+                    subject.style.display = 'block'; // Show relevant subjects
+                }
+            });
+        }
+
+        function closeModal() {
+            document.getElementById('subjectsModal').classList.add('hidden');
+        }
+
+        function submitSubjects() {
+            const selectedSubjects = document.getElementById('selectedSubjects').children;
+            let theoryCount = 0;
+            let labCount = 0;
+
+            for (let i = 0; i < selectedSubjects.length; i++) {
+                if (selectedSubjects[i].innerText.includes('Lab')) {
+                    labCount++;
+                } else {
+                    theoryCount++;
+                }
+            }
+
+            if (theoryCount < 4 || labCount < 2) {
+                alert('Please select at least 4 theory subjects and 2 lab subjects.');
+                return;
+            }
+
+            if (theoryCount + labCount > 10) {
+                alert('You can select a maximum of 10 subjects.');
+                return;
+            }
+
+            alert('Subjects selected successfully!');
+            closeModal();
+        }
+
+        // Initialize SortableJS
+        new Sortable(document.getElementById('availableSubjects'), {
+            group: 'shared',
+            animation: 150,
+            ghostClass: 'bg-blue-200'
+        });
+
+        new Sortable(document.getElementById('selectedSubjects'), {
+            group: 'shared',
+            animation: 150,
+            ghostClass: 'bg-green-200'
+        });
+
+        function disableOtherYears(selectedYear) {
+            const years = ['year1', 'year2', 'year3', 'year4'];
+            years.forEach(year => {
+                if (year !== selectedYear) {
+                    document.getElementById(year).querySelector('button').classList.add('disabled');
+                } else {
+                    document.getElementById(year).querySelector('button').classList.remove('disabled');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

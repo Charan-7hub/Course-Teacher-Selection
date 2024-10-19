@@ -1,0 +1,751 @@
+<html>
+ <head>
+  <title>
+   Teacher Details
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   .modal {
+            display: none;
+            position: fixed;
+            z-index: 50;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 8px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+  </style>
+ </head>
+ <body class="bg-gray-100">
+  <div class="container mx-auto p-6">
+   <h1 class="text-3xl font-bold text-center mb-8">
+    Teacher Details
+   </h1>
+   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Repeat this block for each teacher -->
+    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+
+     <h2 class="text-xl font-bold mb-2">
+      Amarnath
+     </h2>
+     <p>
+      Research Projects: 5
+     </p>
+     <p>
+      Patents: 2
+     </p>
+     <p>
+      Years of Experience: 10
+     </p>
+     <p>
+      Rating:
+      <span class="text-yellow-500">
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star-half-alt">
+       </i>
+      </span>
+     </p>
+     <button class="mt-4 bg-orange-500 text-white py-2 px-4 rounded" onclick="openModal()">
+      Feedback
+     </button>
+    </div>
+    <!-- Repeat this block for each teacher -->
+    <!-- Add more teacher blocks as needed to make 20 -->
+    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+     <h2 class="text-xl font-bold mb-2">
+      Arjuna
+     </h2>
+     <p>
+      Research Projects: 3
+     </p>
+     <p>
+      Patents: 1
+     </p>
+     <p>
+      Years of Experience: 8
+     </p>
+     <p>
+      Rating:
+      <span class="text-yellow-500">
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+      </span>
+     </p>
+     <button class="mt-4 bg-orange-500 text-white py-2 px-4 rounded" onclick="openModal()">
+      Feedback
+     </button>
+    </div>
+    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+     <h2 class="text-xl font-bold mb-2">
+      Basha
+     </h2>
+     <p>
+      Research Projects: 7
+     </p>
+     <p>
+      Patents: 3
+     </p>
+     <p>
+      Years of Experience: 12
+     </p>
+     <p>
+      Rating:
+      <span class="text-yellow-500">
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+      </span>
+     </p>
+     <button class="mt-4 bg-orange-500 text-white py-2 px-4 rounded" onclick="openModal()">
+      Feedback
+     </button>
+    </div>
+    <!-- Add more teacher blocks as needed to make 20 -->
+    <!-- Example of additional teacher blocks -->
+    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+     <h2 class="text-xl font-bold mb-2">
+      Amit
+     </h2>
+     <p>
+      Research Projects: X
+     </p>
+     <p>
+      Patents: X
+     </p>
+     <p>
+      Years of Experience: X
+     </p>
+     <p>
+      Rating:
+      <span class="text-yellow-500">
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+      </span>
+     </p>
+     <button class="mt-4 bg-orange-500 text-white py-2 px-4 rounded" onclick="openModal()">
+      Feedback
+     </button>
+    </div>
+	    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+     <h2 class="text-xl font-bold mb-2">
+      Tiwari
+     </h2>
+     <p>
+      Research Projects: 3
+     </p>
+     <p>
+      Patents: 1
+     </p>
+     <p>
+      Years of Experience: 8
+     </p>
+     <p>
+      Rating:
+      <span class="text-yellow-500">
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+      </span>
+     </p>
+     <button class="mt-4 bg-orange-500 text-white py-2 px-4 rounded" onclick="openModal()">
+      Feedback
+     </button>
+    </div>
+    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+     <h2 class="text-xl font-bold mb-2">
+      Ganesh
+     </h2>
+     <p>
+      Research Projects: 7
+     </p>
+     <p>
+      Patents: 3
+     </p>
+     <p>
+      Years of Experience: 12
+     </p>
+     <p>
+      Rating:
+      <span class="text-yellow-500">
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+      </span>
+     </p>
+     <button class="mt-4 bg-orange-500 text-white py-2 px-4 rounded" onclick="openModal()">
+      Feedback
+     </button>
+    </div>
+    <!-- Add more teacher blocks as needed to make 20 -->
+    <!-- Example of additional teacher blocks -->
+    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+     <h2 class="text-xl font-bold mb-2">
+      Ram
+     </h2>
+     <p>
+      Research Projects: X
+     </p>
+     <p>
+      Patents: X
+     </p>
+     <p>
+      Years of Experience: X
+     </p>
+     <p>
+      Rating:
+      <span class="text-yellow-500">
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+      </span>
+     </p>
+     <button class="mt-4 bg-orange-500 text-white py-2 px-4 rounded" onclick="openModal()">
+      Feedback
+     </button>
+    </div>
+	    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+     <h2 class="text-xl font-bold mb-2">
+      Mahesh 
+     </h2>
+     <p>
+      Research Projects: 3
+     </p>
+     <p>
+      Patents: 1
+     </p>
+     <p>
+      Years of Experience: 8
+     </p>
+     <p>
+      Rating:
+      <span class="text-yellow-500">
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+      </span>
+     </p>
+     <button class="mt-4 bg-orange-500 text-white py-2 px-4 rounded" onclick="openModal()">
+      Feedback
+     </button>
+    </div>
+    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+     <h2 class="text-xl font-bold mb-2">
+      Sudhakar
+     </h2>
+     <p>
+      Research Projects: 7
+     </p>
+     <p>
+      Patents: 3
+     </p>
+     <p>
+      Years of Experience: 12
+     </p>
+     <p>
+      Rating:
+      <span class="text-yellow-500">
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+      </span>
+     </p>
+     <button class="mt-4 bg-orange-500 text-white py-2 px-4 rounded" onclick="openModal()">
+      Feedback
+     </button>
+    </div>
+    <!-- Add more teacher blocks as needed to make 20 -->
+    <!-- Example of additional teacher blocks -->
+    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+     <h2 class="text-xl font-bold mb-2">
+      Sandeep
+     </h2>
+     <p>
+      Research Projects: X
+     </p>
+     <p>
+      Patents: X
+     </p>
+     <p>
+      Years of Experience: X
+     </p>
+     <p>
+      Rating:
+      <span class="text-yellow-500">
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+      </span>
+     </p>
+     <button class="mt-4 bg-orange-500 text-white py-2 px-4 rounded" onclick="openModal()">
+      Feedback
+     </button>
+    </div>
+	    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+     <h2 class="text-xl font-bold mb-2">
+      Rajshekar
+     </h2>
+     <p>
+      Research Projects: 3
+     </p>
+     <p>
+      Patents: 1
+     </p>
+     <p>
+      Years of Experience: 8
+     </p>
+     <p>
+      Rating:
+      <span class="text-yellow-500">
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+      </span>
+     </p>
+     <button class="mt-4 bg-orange-500 text-white py-2 px-4 rounded" onclick="openModal()">
+      Feedback
+     </button>
+    </div>
+    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+     <h2 class="text-xl font-bold mb-2">
+      Chaitanya
+     </h2>
+     <p>
+      Research Projects: 7
+     </p>
+     <p>
+      Patents: 3
+     </p>
+     <p>
+      Years of Experience: 12
+     </p>
+     <p>
+      Rating:
+      <span class="text-yellow-500">
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+      </span>
+     </p>
+     <button class="mt-4 bg-orange-500 text-white py-2 px-4 rounded" onclick="openModal()">
+      Feedback
+     </button>
+    </div>
+    <!-- Add more teacher blocks as needed to make 20 -->
+    <!-- Example of additional teacher blocks -->
+    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+     <h2 class="text-xl font-bold mb-2">
+      Krish
+     </h2>
+     <p>
+      Research Projects: X
+     </p>
+     <p>
+      Patents: X
+     </p>
+     <p>
+      Years of Experience: X
+     </p>
+     <p>
+      Rating:
+      <span class="text-yellow-500">
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+      </span>
+     </p>
+     <button class="mt-4 bg-orange-500 text-white py-2 px-4 rounded" onclick="openModal()">
+      Feedback
+     </button>
+    </div>
+	    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+     <h2 class="text-xl font-bold mb-2">
+        Bhaskar
+     </h2>
+     <p>
+      Research Projects: 3
+     </p>
+     <p>
+      Patents: 1
+     </p>
+     <p>
+      Years of Experience: 8
+     </p>
+     <p>
+      Rating:
+      <span class="text-yellow-500">
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+      </span>
+     </p>
+     <button class="mt-4 bg-orange-500 text-white py-2 px-4 rounded" onclick="openModal()">
+      Feedback
+     </button>
+    </div>
+    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+     <h2 class="text-xl font-bold mb-2">
+      Rafiq
+     </h2>
+     <p>
+      Research Projects: 7
+     </p>
+     <p>
+      Patents: 3
+     </p>
+     <p>
+      Years of Experience: 12
+     </p>
+     <p>
+      Rating:
+      <span class="text-yellow-500">
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+      </span>
+     </p>
+     <button class="mt-4 bg-orange-500 text-white py-2 px-4 rounded" onclick="openModal()">
+      Feedback
+     </button>
+    </div>
+    <!-- Add more teacher blocks as needed to make 20 -->
+    <!-- Example of additional teacher blocks -->
+    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+     <h2 class="text-xl font-bold mb-2">
+      Bharath
+     </h2>
+     <p>
+      Research Projects: X
+     </p>
+     <p>
+      Patents: X
+     </p>
+     <p>
+      Years of Experience: X
+     </p>
+     <p>
+      Rating:
+      <span class="text-yellow-500">
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+      </span>
+     </p>
+     <button class="mt-4 bg-orange-500 text-white py-2 px-4 rounded" onclick="openModal()">
+      Feedback
+     </button>
+    </div>
+	    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+     <h2 class="text-xl font-bold mb-2">
+      Janardhan
+     </h2>
+     <p>
+      Research Projects: 3
+     </p>
+     <p>
+      Patents: 1
+     </p>
+     <p>
+      Years of Experience: 8
+     </p>
+     <p>
+      Rating:
+      <span class="text-yellow-500">
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+      </span>
+     </p>
+     <button class="mt-4 bg-orange-500 text-white py-2 px-4 rounded" onclick="openModal()">
+      Feedback
+     </button>
+    </div>
+    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+     <h2 class="text-xl font-bold mb-2">
+      Khaleel
+     </h2>
+     <p>
+      Research Projects: 7
+     </p>
+     <p>
+      Patents: 3
+     </p>
+     <p>
+      Years of Experience: 12
+     </p>
+     <p>
+      Rating:
+      <span class="text-yellow-500">
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+      </span>
+     </p>
+     <button class="mt-4 bg-orange-500 text-white py-2 px-4 rounded" onclick="openModal()">
+      Feedback
+     </button>
+    </div>
+    <!-- Add more teacher blocks as needed to make 20 -->
+    <!-- Example of additional teacher blocks -->
+    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+     <h2 class="text-xl font-bold mb-2">
+      Sreenath
+     </h2>
+     <p>
+      Research Projects: X
+     </p>
+     <p>
+      Patents: X
+     </p>
+     <p>
+      Years of Experience: X
+     </p>
+     <p>
+      Rating:
+      <span class="text-yellow-500">
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+      </span>
+     </p>
+     <button class="mt-4 bg-orange-500 text-white py-2 px-4 rounded" onclick="openModal()">
+      Feedback
+     </button>
+    </div>
+    <!-- Repeat the above block to make 20 teacher blocks -->
+   </div>
+  </div>
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+   <div class="modal-content">
+    <span class="close" onclick="closeModal()">
+     ×
+    </span>
+    <h2 class="text-2xl font-bold mb-4">
+     Feedback Form
+    </h2>
+    <form>
+     <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+       Name
+      </label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" placeholder="Your Name" type="text"/>
+     </div>
+     <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="branch">
+       Branch
+      </label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="branch" placeholder="Your Branch" type="text"/>
+     </div>
+     <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="feedback">
+       Feedback on Faculty
+      </label>
+      <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="feedback" placeholder="Your Feedback"></textarea>
+     </div>
+     <div class="mb-4 text-center">
+      <label class="block text-gray-700 text-sm font-bold mb-2">
+       Rating
+      </label>
+      <div class="flex justify-center">
+       <i class="fas fa-star text-yellow-500 cursor-pointer" onclick="setRating(1)">
+       </i>
+       <i class="fas fa-star text-yellow-500 cursor-pointer" onclick="setRating(2)">
+       </i>
+       <i class="fas fa-star text-yellow-500 cursor-pointer" onclick="setRating(3)">
+       </i>
+       <i class="fas fa-star text-yellow-500 cursor-pointer" onclick="setRating(4)">
+       </i>
+       <i class="fas fa-star text-yellow-500 cursor-pointer" onclick="setRating(5)">
+       </i>
+      </div>
+     </div>
+     <div class="text-center">
+      <button class="bg-orange-500 text-white py-2 px-4 rounded" type="submit">
+       Submit
+      </button>
+     </div>
+    </form>
+   </div>
+  </div>
+  <script>
+   function openModal() {
+            document.getElementById("myModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        function setRating(rating) {
+            const stars = document.querySelectorAll('.modal-content .fa-star');
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.classList.add('text-yellow-500');
+                } else {
+                    star.classList.remove('text-yellow-500');
+                }
+            });
+        }
+  </script>
+ </body>
+</html>
