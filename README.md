@@ -1,4 +1,4 @@
-Design and Develop and develop a comprehensive Course 
+Designed and Developed and develop a comprehensive Course 
 Selection and Teacher Assignment System for a university. In this system, 
 each student must choose 4 theory courses and 2 lab courses per semester, 
 selecting a teacher for each course from an available pool. The system should 
